@@ -5,7 +5,7 @@ language = "en"
 src = "src"
 
 [output.html]
-site-url='/programming1js-book/'
+site-url='/sql-studybook/'
 additional-js = ["js/highlightjs-line-numbers.js"]
 mathjax-support = true
 
