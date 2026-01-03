@@ -1,0 +1,13 @@
+[book]
+title = "SQL Study Book"
+authors = ["ahto"]
+language = "en"
+src = "src"
+
+[output.html]
+site-url='/programming1js-book/'
+additional-js = ["js/highlightjs-line-numbers.js"]
+mathjax-support = true
+
+[output.html.playground]
+line-numbers = true
