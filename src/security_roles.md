@@ -28,7 +28,7 @@ The permissions that can be enacted on can be operated on specific tables and da
 
 This includes DDL and DML operations.
 
-Commonly, you will use `GRANT`, `REVOKE` and `DENY` operation specifying their permissions on `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `DELETE`, `ALTER` and `DROP`.
+Commonly, you will use `GRANT`, `REVOKE` and `DENY` operation specifying their permissions on `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `CREATE`, `ALTER` and `DROP`.
 
 #### Grant
 
@@ -38,19 +38,35 @@ GRANT ALL ON thedb.* TO 'jeff'@'localhost';
 
 This will grant all permissions on all database object that is part of `thedb` object. These are normally different schemas that are associated with it.
 
-Specifically we can enforce a rule on `INSERT` where a user may get permissions to perform `INSERT` on the table.
+Specifically we can enforce a rule on `INSERT` where a user may get permissions to perform `INSERT` on the table. The snippet below will outline on all the tables associated with the database `world`.
 
 ```sql
 GRANT SELECT ON world.* TO 'role3';
 ```
 
+We can specify permissions on select tables.
+
+```sql
+GRANT SELECT ON thedb.Books TO 'jeff';
+```
+
+We can be specific and specify multiple parts on the role or user.
+
+```sql
+GRANT INSERT, UPDATE, SELECT ON thedb.Authors TO 'role3';
+```
 
 #### Revoke
 
 ```sql
-
 REVOKE ALL ON thedb.* TO 'jeff'@'localhost';
 ```
 
 The above statement will revoke all the permissions that 'jeff' has associated with them. This will result in the user not being able to utilise any object part of `thedb` on the server.
 
+
+*What about `DENY`?*
+
+`DENY` and `REVOKE` can seem like they are fulfilling similar roles here. For the most part, they can be used similarly, however `REVOKE` is to ensure that any permissions given have been removed.
+
+`DENY` however, is checked before anything else, if a `DENY` exists on an object for a particular role or user, even if the permission was granted, the operation would not succeed.
