@@ -70,3 +70,5 @@ The above statement will revoke all the permissions that 'jeff' has associated w
 `DENY` and `REVOKE` can seem like they are fulfilling similar roles here. For the most part, they can be used similarly, however `REVOKE` is to ensure that any permissions given have been removed.
 
 `DENY` however, is checked before anything else, if a `DENY` exists on an object for a particular role or user, even if the permission was granted, the operation would not succeed.
+
+With that information though, we can look at `REVOKE` in a new light, while it is common to see `REVOKE` used to remove `GRANT`ed permissions, it can be used to remove `DENY` permissions on a user/role for an object.
