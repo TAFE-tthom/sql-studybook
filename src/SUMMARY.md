@@ -7,7 +7,6 @@
 
 - [Preparation](./preparation.md)
   - [Software and Setup](./software.md)
-  - [Accessing Resources](./resources.md)
   - [Structure](./structure.md)
   - [Review](./review.md)
   
@@ -76,7 +75,7 @@
   - [Database Normalisation](./modelling_normalisation.md)
   - [Exercises](./modelling_exercises.md)
   - [Review]()
-  
+
 [Conclusion]()
 
 ---

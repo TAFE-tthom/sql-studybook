@@ -16,16 +16,64 @@ There are different parts of the development of an ERD.
 
 * Conceptual Diagram
 
-Initial sketch of a database, usually table names, some columns but very much a visualisation of how the entities relate.
+Initial sketch of a database, usually table names, some columns but very much a visualisation of how the entities relate. The conceptual diagram is typically left to be quite simple and only indicate the relationship between the entities.
 
+```mermaid
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE_ITEM : contains
+    PRODUCT ||--o{ LINE_ITEM : includes
+```
 * Logical Diagram
 
-Logical diagram where we move from the conceptual version and start adding specifics, clear connectivity and cardinality properties between tables. PK/FK column information and what will look like a base to start developing from
+Logical diagram where we move from the conceptual version and start adding specifics, clear connectivity and cardinality properties between tables. PK/FK column information and what will look like a base to start developing from.
+
+```mermaid
+erDiagram
+    ARTIST }|--o{ ALBUM : has
+    SONG }|--o{ ALBUM : part-of
+    ARTIST {
+      string  name
+      string email
+    }
+    SONG {
+      string name
+      int playtime
+    }
+    ALBUM {
+      string title
+    }
+```
 
 * Physical Diagram
 
 What the database will look like, from the logical diagram but it will have clearer specifics around datatypes and database specifics like constraints and unique indexes.
 
+```mermaid
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE_ITEM : contains
+    PRODUCT ||--o{ LINE_ITEM : includes
+    CUSTOMER {
+        INT id
+        VARCHAR(128) name
+        VARCHAR(256) email
+    }
+    ORDER {
+        INT id
+        DATETIME orderDate
+        CHAR(10) status
+    }
+    PRODUCT {
+        INT id
+        VARHCAR(256) name
+        DECIMAL price
+    }
+    LINE_ITEM {
+        INT quantity
+        DECIMAL price
+    }
+```
 
 ### Notations
 

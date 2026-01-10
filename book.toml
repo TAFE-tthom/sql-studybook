@@ -6,8 +6,13 @@ src = "src"
 
 [output.html]
 site-url='/sql-studybook/'
-additional-js = ["js/highlightjs-line-numbers.js"]
+additional-js = ["js/highlightjs-line-numbers.js", "mermaid.min.js", "mermaid-init.js"]
 mathjax-support = true
 
 [output.html.playground]
 line-numbers = true
+
+[preprocessor]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
